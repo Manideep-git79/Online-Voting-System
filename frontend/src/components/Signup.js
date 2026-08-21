@@ -26,23 +26,23 @@ export default function Signup() {
   };
 
   return (
-     <div className="container">
-    <form onSubmit={handleSubmit}>
+    <div className="container">
       <h2>Signup</h2>
       {error && <p className="error">{error}</p>}
-      <input name="name" placeholder="Name" onChange={handleChange} required /><br/>
-      <input name="age" type="number" placeholder="Age" onChange={handleChange} required /><br/>
-      <input name="email" placeholder="Email" onChange={handleChange} /><br/>
-      <input name="mobile" placeholder="Mobile" onChange={handleChange} /><br/>
-      <input name="address" placeholder="Address" onChange={handleChange} required /><br/>
-      <input name="aadharCardNumber" placeholder="Aadhar (12 digits)" onChange={handleChange} required /><br/>
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} required /><br/>
-      <select name="role" onChange={handleChange}>
-        <option value="voter">Voter</option>
-        <option value="admin">Admin</option>
-      </select><br/>
-      <button type="submit">Signup</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <input name="name" placeholder="Name" onChange={handleChange} required />
+        <input name="age" type="number" placeholder="Age" onChange={handleChange} required />
+        <input name="email" placeholder="Email" onChange={handleChange} />
+        <input name="mobile" placeholder="Mobile" onChange={handleChange} />
+        <input name="address" placeholder="Address" onChange={handleChange} required />
+        <input name="aadharCardNumber" placeholder="Aadhar (12 digits)" onChange={handleChange} required />
+        <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
+        <select name="role" onChange={handleChange}>
+          <option value="voter">Voter</option>
+          <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Signup</button>
+      </form>
     </div>
   );
 }

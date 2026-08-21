@@ -3,6 +3,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Candidates from "./components/Candidates";
 import Results from "./components/Results";
+import AdminPanel from "./components/AdminPanel";
 import ProtectedRoute from "./components/ProtectedRoute";
 import "./App.css";
 
@@ -18,12 +19,18 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <nav>
-        {!token && <><Link to="/signup">Signup</Link> | <Link to="/login">Login</Link></>}
-        {token && <Link to="/candidates">Candidates</Link>}
-        {token && role === "admin" && <> | <Link to="/results">Results</Link></>}
-        {token && <> | <button onClick={handleLogout}>Logout</button></>}
+      <nav className="navbar">
+        <div className="nav-brand">🗳️ VoteApp</div>
+        <div className="nav-links">
+          {!token && <Link to="/signup">Signup</Link>}
+          {!token && <Link to="/login">Login</Link>}
+          {token && <Link to="/candidates">Candidates</Link>}
+          {token && role === "admin" && <Link to="/results">Results</Link>}
+          {token && role === "admin" && <Link to="/admin">Add Candidate</Link>}
+          {token && <button className="logout-btn" onClick={handleLogout}>Logout</button>}
+        </div>
       </nav>
+
       <Routes>
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
@@ -40,6 +47,14 @@ export default function App() {
           element={
             <ProtectedRoute allowedRoles={["admin"]}>
               <Results />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute allowedRoles={["admin"]}>
+              <AdminPanel />
             </ProtectedRoute>
           }
         />

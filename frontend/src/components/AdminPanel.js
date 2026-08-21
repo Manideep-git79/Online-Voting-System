@@ -22,11 +22,11 @@ export default function AdminPanel() {
   return (
     <div className="container">
       <h2>Add Candidate</h2>
-      {message && <p>{message}</p>}
+      {message && <p className="info-msg">{message}</p>}
       <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Candidate Name" value={form.name} onChange={handleChange} required /><br/>
-        <input name="party" placeholder="Party" value={form.party} onChange={handleChange} required /><br/>
-        <input name="age" type="number" placeholder="Age" value={form.age} onChange={handleChange} required /><br/>
+        <input name="name" placeholder="Candidate Name" value={form.name} onChange={handleChange} required />
+        <input name="party" placeholder="Party" value={form.party} onChange={handleChange} required />
+        <input name="age" type="number" placeholder="Age" value={form.age} onChange={handleChange} required />
         <button type="submit">Add Candidate</button>
       </form>
     </div>

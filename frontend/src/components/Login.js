@@ -27,13 +27,13 @@ export default function Login() {
 
   return (
     <div className="container">
-    <form onSubmit={handleSubmit}>
       <h2>Login</h2>
       {error && <p className="error">{error}</p>}
-      <input name="aadharCardNumber" placeholder="Aadhar Number" onChange={handleChange} required /><br/>
-      <input name="password" type="password" placeholder="Password" onChange={handleChange} required /><br/>
-      <button type="submit">Login</button>
-    </form>
+      <form onSubmit={handleSubmit}>
+        <input name="aadharCardNumber" placeholder="Aadhar Number" onChange={handleChange} required />
+        <input name="password" type="password" placeholder="Password" onChange={handleChange} required />
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
 }

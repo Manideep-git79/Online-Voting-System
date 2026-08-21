@@ -5,33 +5,62 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f4f6f8;
+  background: #eef1f5;
   color: #222;
 }
 
-nav {
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #2c3e50;
-  padding: 14px 24px;
+  padding: 14px 28px;
+  flex-wrap: wrap;
 }
 
-nav a {
+.nav-brand {
   color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: #ecf0f1;
   text-decoration: none;
-  margin-right: 20px;
   font-weight: 500;
 }
 
-nav a:hover {
-  text-decoration: underline;
+.nav-links a:hover {
+  color: #1abc9c;
+}
+
+.logout-btn {
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
 }
 
 .container {
-  max-width: 420px;
-  margin: 40px auto;
+  max-width: 460px;
+  margin: 50px auto;
   background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
 h2 {
@@ -40,24 +69,33 @@ h2 {
   color: #2c3e50;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 form input, form select {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
+  padding: 11px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 14px;
 }
 
+form input:focus, form select:focus {
+  outline: none;
+  border-color: #1abc9c;
+}
+
 form button {
-  width: 100%;
-  padding: 10px;
+  padding: 11px;
   background: #2c3e50;
   color: #fff;
   border: none;
   border-radius: 6px;
   font-size: 15px;
   cursor: pointer;
+  font-weight: 500;
 }
 
 form button:hover {
@@ -70,6 +108,12 @@ form button:hover {
   margin-bottom: 10px;
 }
 
+.info-msg {
+  text-align: center;
+  color: #27ae60;
+  font-weight: 500;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -79,21 +123,47 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 14px;
+  padding: 12px 16px;
+  background: #fafafa;
   border: 1px solid #eee;
-  border-radius: 6px;
-  margin-bottom: 8px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 li button {
-  padding: 6px 14px;
-  background: #27ae60;
-  color: #fff;
+  padding: 7px 14px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  font-weight: 500;
+  color: #fff;
 }
 
-li button:hover {
+li button:first-of-type {
+  background: #27ae60;
+}
+li button:first-of-type:hover {
   background: #1e8449;
+}
+
+li button.edit-btn {
+  background: #2980b9;
+}
+li button.edit-btn:hover {
+  background: #1f618d;
+}
+
+li button.delete-btn {
+  background: #e74c3c;
+}
+li button.delete-btn:hover {
+  background: #c0392b;
+}
+
+li input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }

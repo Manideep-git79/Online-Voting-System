@@ -13,7 +13,10 @@ export default function Results() {
       <h2>Results</h2>
       <ul>
         {results.map((r, i) => (
-          <li key={i}>{r.party}: {r.count} votes</li>
+          <li key={i}>
+            <span>{r.party}</span>
+            <span>{r.count} votes</span>
+          </li>
         ))}
       </ul>
     </div>
