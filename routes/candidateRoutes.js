@@ -177,7 +177,7 @@ router.post('/vote/:candidateID', jwtAuthMiddleware, async (req, res) => {
     }
 });
 
-router.get('/vote/count', async (req, res) => {
+router.get('/vote/count', jwtAuthMiddleware, async (req, res) => {
     try {
         const candidates = await Candidate.find()
             .sort({ voteCount: -1 });
@@ -200,11 +200,11 @@ router.get('/vote/count', async (req, res) => {
     }
 });
 
-router.get('/', async (req, res) => {
+router.get('/',jwtAuthMiddleware,async (req, res) => {
     try {
         const candidates = await Candidate.find(
             {},
-            'name party -_id'
+            'name party'
         );
 
         res.status(200).json(candidates);
