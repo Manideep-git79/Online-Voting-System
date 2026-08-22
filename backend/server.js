@@ -5,7 +5,14 @@ require('dotenv').config();
 const cors = require('cors');
 
 const bodyParser = require('body-parser');
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    "http://localhost:3001",
+    "online-voting-system-kappa-fawn.vercel.app"
+  ]
+}));
+
 app.use(bodyParser.json());
 const PORT = process.env.PORT || 3000;
 
