@@ -179,11 +179,18 @@ router.post('/vote/:candidateID', jwtAuthMiddleware, async (req, res) => {
 
 router.get('/vote/count', jwtAuthMiddleware, async (req, res) => {
     try {
+        if (!(await checkAdminRole(req.user.id))) {
+            return res.status(403).json({
+                message: 'User does not have admin role'
+            });
+        }
+
         const candidates = await Candidate.find()
             .sort({ voteCount: -1 });
 
         const voteRecord = candidates.map((data) => {
             return {
+                name: data.name,
                 party: data.party,
                 count: data.voteCount
             };
@@ -193,25 +200,23 @@ router.get('/vote/count', jwtAuthMiddleware, async (req, res) => {
 
     } catch (err) {
         console.log(err);
-
         res.status(500).json({
             error: 'Internal Server Error'
         });
     }
 });
 
-router.get('/',jwtAuthMiddleware,async (req, res) => {
+router.get('/', jwtAuthMiddleware, async (req, res) => {
     try {
         const candidates = await Candidate.find(
             {},
-            'name party'
+            'name party age voteCount'
         );
 
         res.status(200).json(candidates);
 
     } catch (err) {
         console.error(err);
-
         res.status(500).json({
             error: 'Internal Server Error'
         });
