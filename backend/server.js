@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 app.use(cors({
   origin: [
     "http://localhost:3001",
-    "online-voting-system-kappa-fawn.vercel.app"
+    "https://online-voting-system-kappa-fawn.vercel.app"
   ]
 }));
 
